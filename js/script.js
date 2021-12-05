@@ -143,10 +143,92 @@ console.log(Object.keys(options).length);
 const {border, bg} = options.colors;
 console.log(border); */
 
+/*
 "use strict";
 
 const arr = [2, 3, 6, 8, 10];
 
-arr.forEach(function(item, i, arr) {
+arr.forEach(function (item, i, arr) {
     console.log(`${i}: ${item} inside ${arr}`);
-});
+}); */
+
+/*
+let a = 5,
+    b = a;
+b = b + 5;
+
+console.log(a);
+console.log(b);
+
+const obj = {
+    a: 5,
+    b: 1
+};
+ */
+// const copy = obj;
+// copy.a = 10;
+
+// console.log(copy);
+// console.log(obj);
+/*
+function copy(mainObj) {
+    let objCopy = {};
+    let key;
+    for(key in mainObj) {
+        objCopy[key] = mainObj[key];
+    } 
+    return objCopy;
+}
+const numbers = {
+    a: 2,
+    b: {
+        x: 7,
+        y: 4
+    }
+};
+
+const newNumbers = copy(numbers);
+
+newNumbers.a = 10;
+*/ 
+
+"use strict";
+
+// let str = "some";
+// let strObj = new String(str);
+// console.log(typeof(str));
+// console.log(typeof(strObj));
+//OLD 
+console.dir([1, 2, 3]);
+
+// const soldier = {
+//     health: 400,
+//     armor: 100,
+//     sayHello: function() {
+//         console.log("Hello");
+//     }
+// };
+// const jonh = {
+//     health: 100
+// };
+
+// jonh.__proto__ = soldier;
+// jonh.sayHello();
+
+//NEW
+
+const soldier = {
+    health: 400,
+    armor: 100,
+    sayHello: function() {
+        console.log("Hello");
+    }
+};
+const jonh = {
+    health: 100
+};
+
+Object.setPrototypeOf(jonh, soldier);
+jonh.sayHello();
+
+const dimon = Object.create(soldier);
