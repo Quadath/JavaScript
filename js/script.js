@@ -190,16 +190,14 @@ const numbers = {
 const newNumbers = copy(numbers);
 
 newNumbers.a = 10;
-*/ 
+*/
 
-"use strict";
 
 // let str = "some";
 // let strObj = new String(str);
 // console.log(typeof(str));
 // console.log(typeof(strObj));
 //OLD 
-console.dir([1, 2, 3]);
 
 // const soldier = {
 //     health: 400,
@@ -217,18 +215,92 @@ console.dir([1, 2, 3]);
 
 //NEW
 
-const soldier = {
-    health: 400,
-    armor: 100,
-    sayHello: function() {
-        console.log("Hello");
+// const soldier = {
+//     health: 400,
+//     armor: 100,
+//     sayHello: function() {
+//         console.log("Hello");
+//     }
+// };
+// const jonh = {
+//     health: 100
+// };
+
+// Object.setPrototypeOf(jonh, soldier);
+// jonh.sayHello();
+
+// const dimon = Object.create(soldier);
+
+"use strict";
+
+const personalMovieDB = {
+    count: 0,
+    movies: {},
+    actors: {},
+    genres: [],
+    privat: false,
+    start: function () {
+        this.count = +prompt('Сколько фильмов вы уже посмотрели?', '');
+        while (this.count == '' || this.count == null || isNaN(this.count)) {
+            this.count = +prompt('Сколько фильмов вы уже посмотрели?', '');
+        }
+    },
+    rememberFilms: function () {
+        for (let i = 0; i < 2; i++) {
+            const a = prompt('Один из последних просмотренных фильмов?', ''),
+                b = prompt('На сколько оцените его?', '');
+
+            if (a != null && b != null && a != '' &&
+                b != '' && a.length <= 50 && b.length <= 50) {
+                personalMovieDB.movies[a] = b;
+            } else {
+                i--;
+            }
+        }
+    },
+    CountUserLevel: function () {
+        if (personalMovieDB.count < 10) {
+            console.log('Просмотрено довольно мало фильмов');
+        } else if (personalMovieDB.count < 30) {
+            console.log('Вы обычный зритель');
+        } else if (personalMovieDB.count >= 30) {
+            console.log('Вы киноман!');
+        }
+    },
+    rememberGenres: function () {
+        // for (let i = 0; i < 3; i++) {
+        //     const a = prompt(`Ваш любимый жанр под номером ${i + 1}`, '');
+        //     if (a != null && a != '' && a.length <= 30) {
+        //         personalMovieDB.genres[i] = a;
+        //     } else {
+        //         i--;
+        //     }
+        // }
+        let genres = prompt(`Введите ваши любимые жанры через запятую`);
+
+        if(genres === '' || genres == null) {
+            console.log(`Вы ввели некорректные данные или не ввели их вовсе`);
+        } else {
+         this.genres = genres.split(', ');
+        }
+        this.genres.forEach((item, i) => {
+            console.log(`Genre ${i} is ${item}`);
+        });
+    },
+    showMyDB: function () {
+        if (!personalMovieDB.privat) {
+            console.log(personalMovieDB);
+        } else {
+            console.log("Данная база приватная.");
+        }
+    },
+    toggleVisibleDb: function() {
+        this.privat = !this.privat;
     }
 };
-const jonh = {
-    health: 100
-};
 
-Object.setPrototypeOf(jonh, soldier);
-jonh.sayHello();
-
-const dimon = Object.create(soldier);
+personalMovieDB.start();
+personalMovieDB.rememberFilms();
+personalMovieDB.rememberGenres();
+personalMovieDB.toggleVisibleDb();
+personalMovieDB.showMyDB();
