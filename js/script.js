@@ -1,25 +1,31 @@
-"use strict";
-// 1)
-console.log(typeof(String(null)));
-console.log(typeof(String(4)));
+"use strict"
+//1)
+// let x = 5; alert(++x);
 
-// 2)
+//2)
+//console.log([] + false - null + true); //NaN
 
-console.log(typeof(5 + ""));
+//3)
+// let y = 1;
+// let x = y = 2; 
+// alert(x); 
 
-const num = 5;
+//4) 
+//console.log([] + 1 + 2); //12 (string)
 
-console.log("https://vk.com/" + num);
+//5)
+//alert( "yes"[0]); //y
 
-const fontSize = 26 + 'px';
+//6)
+//console.log(2 && 1 && null && 0 && undefined); //null
 
-//To num
-//1
-console.log(typeof(Number('4')));
-//2
-console.log(typeof(+'5'));
-//3 
-console.log(typeof(parseInt("15px", 10)));
-console.log(parseInt("15px", 10));
+//7)
+// console.log(!!( 1 && 2 ) === (2 && 1)); //false
 
-let answer = +prompt("Hello", "");
+//8)
+// alert( null || 2 && 3 || 4 ); //3
+
+//9)
+
+const a = [1, 2, 3]; 
+const b = [1, 2, 3]; 
