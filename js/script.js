@@ -1,31 +1,19 @@
-"use strict"
-//1)
-// let x = 5; alert(++x);
+const box = document.getElementById('box');
 
-//2)
-//console.log([] + false - null + true); //NaN
+console.log(box);
 
-//3)
-// let y = 1;
-// let x = y = 2; 
-// alert(x); 
+const btns = document.getElementsByTagName('button')[1]; //Get second button
+console.log(btns);
 
-//4) 
-//console.log([] + 1 + 2); //12 (string)
+const circles = document.getElementsByClassName('circle');
+console.log(circles);
 
-//5)
-//alert( "yes"[0]); //y
+const hearts = document.querySelectorAll(".heart");
+// console.log(hearts);
 
-//6)
-//console.log(2 && 1 && null && 0 && undefined); //null
+hearts.forEach(item => {
+    console.log(item);
+});
 
-//7)
-// console.log(!!( 1 && 2 ) === (2 && 1)); //false
-
-//8)
-// alert( null || 2 && 3 || 4 ); //3
-
-//9)
-
-const a = [1, 2, 3]; 
-const b = [1, 2, 3]; 
+const oneHeart = document.querySelector('.heart');
+console.log(oneHeart);
