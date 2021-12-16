@@ -1,18 +1,18 @@
 "use strict"
 
-const btn = document.querySelector('button');
+// console.log(document.body.childNodes);
+// console.log(document.body.firstChild);
+// console.log(document.body.lastChild);
 
-// btn.onclick = function() {
-//     alert('fuck you');
-// };
+// console.log(document.querySelector('#current').parentNode);
+// console.log(document.querySelector('#current').parentElement);
 
-// btn.addEventListener('click', () => 
-// {
-//     alert('Da');
-// });
+// console.log(document.querySelector('[data-current="3"]').nextSibling);
+// console.log(document.querySelector('[data-current="3"]').nextElementSibling);
 
-const deleteElement = (e) => {
-    e.target.style.backgroundColor = `rgb(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255})`;
-};
-
-btn.addEventListener('mouseenter', deleteElement);
+for(let node of document.body.childNodes) {
+    if(node.nodeName == '#text') {
+        continue;
+    }
+    console.log(node);
+}
