@@ -1,12 +1,13 @@
 "use strict";
 
-window.addEventListener('DOMContentLoaded', () => {
-    const box = document.querySelector('.box');
-    box.addEventListener('touchmove', (e) => {
-        e.preventDefault();
-        // console.log(' ');
-        // console.log(e.touches);
-        // console.log(e.targetTouches);
-        console.log(e.changedTouches);
-    });
-});
+const p = document.querySelectorAll('p');
+
+console.log(p);
+
+function loadScript(src) {
+    const script = document.createElement('script');
+    script.src = 'js/test.js';
+    script.async = false;
+    document.body.append(script);
+}
+loadScript('js/test.js');
