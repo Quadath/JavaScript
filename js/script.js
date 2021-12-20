@@ -1,41 +1,24 @@
-// const timerId = setTimeout(function(text) {
-//     console.log(text);
-// }, 2000, 'Hello');
+'use strict';
 
-const btn = document.querySelector('.btn');
-let timerId,
-    i = 0;
+// const now = new Date('2020-05-01');
+// const now = new Date(2020, 5, 1, 20);
+// console.log(now.getFullYear());
+// console.log(now.getMonth());
+// console.log(now.getDay());
+const now = new Date();
 
-function myAnimation() {
-    const elem = document.querySelector('.box');
-    let pos = 0;
+// console.log(now.getHours());
+// console.log(now.getUTCHours());
 
-    const id = setInterval(frame, 4);
-    function frame() {
-        if(pos == 300) {
-            clearInterval();
-        } else {
-            pos++;
-            elem.style.top = pos + "px";
-            elem.style.left = pos + "px";
-        }
-    }
+// console.log(now.getTime());
+
+let start = new Date();
+
+for(let i = 0; i < 100000; i++) {
+    let some = i - 12 + i;
 }
+let end = new Date();
 
-btn.addEventListener('click', myAnimation);
-// // setTimeout(logger, 2000);
+// alert(`${(end.getTime() - start.getTime()) / 1000} секунд`);
+alert(` ${end - start} мс`);
 
-// // clearInterval(timerId);
-
-// function logger() {
-//     if(i == 3) {
-//         clearInterval(timerId);
-//     }
-//     console.log('text');
-//     i++;
-// }
-
-// let id = setTimeout(function log(){
-//     console.log('hello');
-//     id = setTimeout(log, 500);
-// }, 500);
