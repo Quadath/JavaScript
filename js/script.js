@@ -1,24 +1,74 @@
 'use strict';
 
-// const now = new Date('2020-05-01');
-// const now = new Date(2020, 5, 1, 20);
-// console.log(now.getFullYear());
-// console.log(now.getMonth());
-// console.log(now.getDay());
-const now = new Date();
+// function showThis(a, b) {
+//     console.log(this);
+//     function sum() {
+//         return a + b;
+//     }
+//     console.log(sum());
+// }
+// showThis(4, 5);
 
-// console.log(now.getHours());
-// console.log(now.getUTCHours());
+// const obj = {
+//     a: 20,
+//     b: 15, 
+//     sum: function() {
+//         function shout() {
+//             console.log(this);
+//         }
+//         shout();
+//     }
+// };
+// obj.sum();
 
-// console.log(now.getTime());
+// function User(name, id) {
+//     this.name = name;
+//     this.id = id;
+//     this.human = true;
+// }
+// let ivan = new User('Ivan', 23);
 
-let start = new Date();
+// function sayName(surname) {
+//     console.log(this);
+//     console.log(this.name + surname);
+// }
+// const user = {
+//     name: 'Joe'
+// };
 
-for(let i = 0; i < 100000; i++) {
-    let some = i - 12 + i;
-}
-let end = new Date();
+// sayName.call(user, 'Smith');
 
-// alert(`${(end.getTime() - start.getTime()) / 1000} секунд`);
-alert(` ${end - start} мс`);
+// function count(num) {
+//     return this*num;
+// }
 
+// const double = count.bind(2);
+// console.log(double(3));
+
+// const btn = document.querySelector('button');
+
+// btn.addEventListener('click', function() {
+//     console.log(this);
+//     this.style.backgroundColor = '#ff0000';
+// });
+
+const obj = {
+    num: 5,
+    sayNumber: function() {
+        const say = () => {
+            console.log(this.num);
+        };
+        say();
+    }
+};  
+obj.sayNumber();
+// const double = (a) => {
+//     return a * 2;
+// }
+const double = a => a * 2;
+console.log(double(4));
+
+//1 Обычная функция: this = window, use strict - undefined
+//2 Контекст у методов объекта - сам объект
+//3 this в конструкторах и классах - это новй экземпляр объекта
+//4 ручная привязка this: call, apply, bind
