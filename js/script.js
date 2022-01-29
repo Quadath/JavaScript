@@ -1,70 +1,51 @@
-'use strict'
+'use strict';
 
-console.log("Запрос данных..");
+// // filter
 
-const req = new Promise((resolve, reject) => {
-    setTimeout(() =>
-    {
-        console.log('Подготовка данных...');
-        const product = {
-            name: 'TV',
-            price: 2000,
-        };
-        resolve(product);
-    }, 2000);
-});
+// const names = ['Ivan', 'Ann', 'Ksenia', 'Voldemart', 'Dmitro'];
 
-req.then((product) => {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            product.staus = 'order';
-            // reject();
-            resolve(product);
-        }, 2000);
-    }).then(data => {
-        data.modify = true;
-        return data;
-    }).then((data) => {
-        console.log(data);
-    });
-}).catch(() => {
-    console.log('Ошибка.');
-}).finally(() => {
-    console.log('finally');
-});
+// const shortNames = names.filter((name) => {
+//     return name.length < 5;
+// });
 
+// console.log(shortNames);
 
+//map
+
+// const answers = ['IvAn', 'AnnA', 'Hello'];
+
+// const result = answers.map(item => {return item.toLowerCase();});
+// console.log(result);
+
+// let answers = ['IvAn', 'AnnA', 'Hello'];
+
+// answers = answers.map(item => {return item.toLowerCase();});
+// console.log(answers);
+
+// every/some
+
+// const some = [3, 'qw', 'fsdffsdf'];
+
+// console.log(some.some(item => typeof(item) === 'number')); //true
+
+// console.log(some.every(item => typeof(item) === 'number')); //false
+
+// const arr = [4, 5, 1, 3, 2, 6];
+// const arr = ['apple', 'pear', 'plum'];
 
 
-const test = time => {
-    return new Promise(resolve => {
-        setTimeout(() => resolve(), time);
-    });
+// const result = arr.reduce((sum, current) => sum + current);
+// const result = arr.reduce((sum, current) => sum + `, ${current}`);
+// console.log(result);
+
+const obj = {
+    ivan: 'persone',
+    ann: 'persone',
+    dog: 'animal',
+    cat: 'animal'
 };
 
-test(1000).then(() => console.log('1000ms'));
-test(2000).then(() => console.log('2000ms'));
-
-//Wait until all promised end
-Promise.all([test(1000), test(2000)]).then(() => {
-    console.log('all');
-});
-
-//Wait until one promise completed
-Promise.race([test(1000), test(2000)]).then(() => {
-    console.log('first');
-});
-//BAD
-// setTimeout(() =>
-// {
-//     console.log('Подготовка данных...');
-//     const product = {
-//         name: 'TV',
-//         price: 2000,
-//     };
-
-//     setTimeout(() => {
-//         product.staus = 'order';
-//         console.log(product);
-//     }, 2000);
-// }, 2000);
+const newArr = Object.entries(obj)
+    .filter(item => item[1] == 'persone')
+    .map(item => item[0]);
+console.log(newArr);
