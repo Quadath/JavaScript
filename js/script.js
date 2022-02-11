@@ -1,28 +1,16 @@
 'use strict';
 
-// localStorage.setItem('name', "value");
+const person = {
+    name: 'Bruh',
+    age: '324',
 
-// let name = localStorage.getItem('name');
+    get userAge() {
+        return this.age;
+    },
 
-// localStorage.removeItem('name');
+    set userAge(num) {
+        this.age = num;
+    }
+};
 
-// localStorage.clear();
-
-const checkbox = document.querySelector('#checkbox'),
-    text = document.querySelector('#text');
-
-
-if(localStorage.getItem('isChecked')) {
-    checkbox.checked = true;
-}
-
-if(localStorage.getItem('text')) {
-    text.value = localStorage.getItem('text');
-}
-
-checkbox.addEventListener('change', () => {
-    localStorage.setItem('isChecked', true);
-});
-text.addEventListener('change', () => {
-    localStorage.setItem('text', text.value);
-});
+console.log(person.userAge = 300);
