@@ -1,9 +1,11 @@
-import {one, two} from './main.js'; //переименование переменной
+'use strict';
 
-// import * as data from './main'; //Импортировать всё
-import sayHi from './main.js';
+try {
+    console.log('Normal');
+    console.log(a);
+} catch(error) {
+    console.log(error.name);
+    console.log(error.stack);
+}
 
-console.log(`one is ${one}`);
-
-// data.sayHi();
-sayHi();
+console.log('Still normal');
